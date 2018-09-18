@@ -1,6 +1,3 @@
-//Created by: Milad Hajihassan
-
-
 // Tone frequencies
 #include "pitches.h"
 
@@ -62,7 +59,7 @@ void sing(){
        buzz(melodyPin, melody[thisNote],noteDuration);
        // to distinguish the notes, set a minimum time between them.
        // the note's duration + 30% seems to work well:
-       int pauseBetweenNotes = noteDuration *1.3;
+       int pauseBetweenNotes = noteDuration * 1;
        delay(pauseBetweenNotes);
        // stop the tone playing:
        buzz(melodyPin, 0,noteDuration);
@@ -71,7 +68,7 @@ void sing(){
 }
 
 void buzz(int targetPin, long frequency, long length) {
-  long delayValue = 50000/frequency/1; // calculate the delay value between transitions
+  long delayValue = 1000000/frequency/2; // calculate the delay value between transitions
   long numCycles = frequency * length/ 1000; // calculate the number of cycles for proper timing
   for (long i=0; i < numCycles; i++){ // for the calculated length of time...
     digitalWrite(targetPin,HIGH); // write the buzzer pin high to push out the diaphram
